@@ -1,0 +1,61 @@
+.contributor-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  height: 100%;
+}
+
+.contributor-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.contributor-card__name {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.contributor-card__username {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.contributor-card__bio {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.contributor-card__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contributor-card__skill {
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--color-accent);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.contributor-card__link {
+  margin-top: auto;
+  align-self: flex-start;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contributor-card__link:hover,
+.contributor-card__link:focus-visible {
+  text-decoration: underline;
+}
