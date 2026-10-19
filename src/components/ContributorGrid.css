@@ -1,7 +1,7 @@
 .contributor-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
   list-style: none;
   padding: 0;
   margin: 1.5rem 0 0;

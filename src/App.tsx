@@ -1,20 +1,30 @@
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom';
 import { I18nProvider, useTranslation } from './i18n';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { HomePage } from './pages/HomePage';
 import { ContributePage } from './pages/ContributePage';
 
 const BASE_PATH = import.meta.env.BASE_URL;
+const LOGO_URL = `${BASE_PATH}logo.png`;
 
 function Header() {
   const { t } = useTranslation();
   return (
     <header className="app-header">
-      <div className="app-header__brand">
-        <h1 className="app-header__title">{t('app.title')}</h1>
-        <p className="app-header__subtitle">{t('app.subtitle')}</p>
-      </div>
-      <nav className="app-header__nav" aria-label={t('nav.home')}>
+      <Link className="app-header__brand" to="/" aria-label={t('app.title')}>
+        <img
+          className="app-header__logo"
+          src={LOGO_URL}
+          alt={t('app.logoAlt')}
+          width={52}
+          height={52}
+        />
+        <span className="app-header__brand-text">
+          <span className="app-header__title">{t('app.title')}</span>
+          <span className="app-header__subtitle">{t('app.subtitle')}</span>
+        </span>
+      </Link>
+      <nav className="app-header__nav" aria-label={t('nav.label')}>
         <NavLink to="/" end>
           {t('nav.home')}
         </NavLink>

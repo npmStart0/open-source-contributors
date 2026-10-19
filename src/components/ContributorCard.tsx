@@ -14,12 +14,23 @@ interface ContributorCardProps {
 export function ContributorCard({ contributor }: ContributorCardProps) {
   const { t } = useTranslation();
   const { name, username, bio, skills, profileUrl } = contributor;
+  const avatarUrl = `https://github.com/${username}.png?size=120`;
 
   return (
     <article className="contributor-card" aria-label={name}>
       <header className="contributor-card__header">
-        <h3 className="contributor-card__name">{name}</h3>
-        <span className="contributor-card__username">@{username}</span>
+        <img
+          className="contributor-card__avatar"
+          src={avatarUrl}
+          alt=""
+          loading="lazy"
+          width={56}
+          height={56}
+        />
+        <div className="contributor-card__identity">
+          <h3 className="contributor-card__name">{name}</h3>
+          <span className="contributor-card__username">@{username}</span>
+        </div>
       </header>
 
       {bio && <p className="contributor-card__bio">{bio}</p>}
