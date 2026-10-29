@@ -13,8 +13,8 @@ export const NAME_MAX_LENGTH = 80;
 export const BIO_MAX_LENGTH = 280;
 export const SKILLS_MAX_COUNT = 10;
 
-/** GitHub-compatible username: lowercase letters, digits and hyphens. */
-export const USERNAME_PATTERN = /^[a-z0-9-]+$/;
+/** GitHub-compatible username: letters (any case), digits and hyphens. */
+export const USERNAME_PATTERN = /^[A-Za-z0-9-]+$/;
 
 export const contributorSchema = z
   .object({
@@ -22,7 +22,7 @@ export const contributorSchema = z
       .string()
       .min(1, 'username is required')
       .max(USERNAME_MAX_LENGTH, `username must be at most ${USERNAME_MAX_LENGTH} characters`)
-      .regex(USERNAME_PATTERN, 'username may contain only lowercase letters, digits and hyphens'),
+      .regex(USERNAME_PATTERN, 'username may contain only letters, digits and hyphens'),
     name: z
       .string()
       .trim()

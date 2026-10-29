@@ -36,8 +36,8 @@ describe('contributorSchema', () => {
     expect(() => contributorSchema.parse({ username: 'x', name: '   ' })).toThrow();
   });
 
-  it('rejects uppercase letters in username', () => {
-    expect(() => contributorSchema.parse({ username: 'Israel', name: 'A' })).toThrow();
+  it('accepts uppercase letters in username', () => {
+    expect(() => contributorSchema.parse({ username: 'Israel', name: 'A' })).not.toThrow();
   });
 
   it('rejects invalid characters in username', () => {

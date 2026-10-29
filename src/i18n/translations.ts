@@ -4,27 +4,18 @@ export const LANGUAGES = ['he', 'en'] as const;
 export type Language = (typeof LANGUAGES)[number];
 
 export const en = {
-  'app.title': 'Open Source Contributors',
+  'app.title': 'Open Source. People. Community.',
   'app.subtitle':
-    'A community directory of open-source contributors and their skills.',
+    'Discover developers, explore technologies, and connect with the open-source community.',
   'app.logoAlt': 'npmStart logo',
   'nav.label': 'Primary',
   'nav.home': 'Home',
   'nav.contribute': 'How to Contribute',
-  'home.join': 'Join the Community',
-  'home.heroTitle': 'Open Source Contributors',
+  'home.join': 'Add your profile',
+  'home.heroTitle': 'Open Source. People. Community.',
   'home.heroSubtitle':
     'Discover the next-generation developers and the technologies they build with. Browse the community, or add your own profile.',
-  'home.viewContributors': 'View contributors',
-  'home.benefitsTitle': 'Why join?',
-  'home.benefit1Title': 'Showcase your skills',
-  'home.benefit1Text':
-    'Share your name, bio and tech stack with the community.',
-  'home.benefit2Title': 'Simple contribution',
-  'home.benefit2Text': 'Add a single JSON file through a pull request.',
-  'home.benefit3Title': 'Grow together',
-  'home.benefit3Text':
-    'Connect with other open-source developers and learn from each other.',
+  'home.viewContributors': 'Meet the community',
   'home.searchLabel': 'Search by name or GitHub username',
   'home.searchPlaceholder': 'Search contributors…',
   'home.skillsLabel': 'Filter by skills',
@@ -67,30 +58,28 @@ export const en = {
   'contribute.backHome': 'Back to directory',
   'code.copy': 'Copy',
   'code.copied': 'Copied!',
+  'footer.mentoring.title': 'Ready to level up your GitHub profile?',
+  'footer.mentoring.description':
+    'Learn Git and GitHub, build an impressive and professional GitHub profile, showcase your projects effectively, and develop your professional presence as a developer.',
+  'footer.mentoring.cta': 'Get in touch',
+  'footer.mentoring.ctaAria': 'Contact me by email about GitHub mentoring',
+  'footer.mentoring.name': 'Dvora',
 } as const;
 
 export type TranslationKey = keyof typeof en;
 
 export const he: Record<TranslationKey, string> = {
-  'app.title': 'תורמי קוד פתוח',
-  'app.subtitle': 'ספריית קהילה של תורמי קוד פתוח והטכנולוגיות שלהם.',
+  'app.title': 'קוד פתוח. אנשים. קהילה.',
+  'app.subtitle': 'מגלים מפתחים, מכירים טכנולוגיות ומתחברים לקהילת הקוד הפתוח.',
   'app.logoAlt': 'הלוגו של npmStart',
   'nav.label': 'ניווט ראשי',
   'nav.home': 'דף הבית',
   'nav.contribute': 'איך לתרום',
-  'home.join': 'הצטרפו לקהילה',
-  'home.heroTitle': 'תורמי קוד פתוח',
+  'home.join': 'הוסיפו את הפרופיל שלכם',
+  'home.heroTitle': 'קוד פתוח. אנשים. קהילה.',
   'home.heroSubtitle':
     'הכירו את המפתחים של דור העתיד ואת הטכנולוגיות שהם עובדים איתן. עיינו בקהילה, או הוסיפו את הפרופיל שלכם.',
-  'home.viewContributors': 'צפייה בתורמים',
-  'home.benefitsTitle': 'למה להצטרף?',
-  'home.benefit1Title': 'הציגו את היכולות שלכם',
-  'home.benefit1Text': 'שתפו את השם, הביו וסט הטכנולוגיות שלכם עם הקהילה.',
-  'home.benefit2Title': 'תרומה פשוטה',
-  'home.benefit2Text': 'הוספת קובץ JSON יחיד באמצעות Pull Request.',
-  'home.benefit3Title': 'צומחים יחד',
-  'home.benefit3Text':
-    'התחברו למפתחי קוד פתוח אחרים ולמדו אחד מהשני.',
+  'home.viewContributors': 'הכירו את הקהילה',
   'home.searchLabel': 'חיפוש לפי שם או שם משתמש ב-GitHub',
   'home.searchPlaceholder': 'חיפוש תורמים…',
   'home.skillsLabel': 'סינון לפי טכנולוגיות',
@@ -132,6 +121,12 @@ export const he: Record<TranslationKey, string> = {
   'contribute.backHome': 'חזרה לספרייה',
   'code.copy': 'העתקה',
   'code.copied': 'הועתק!',
+  'footer.mentoring.title': 'רוצה לשדרג את ה־GitHub שלך?',
+  'footer.mentoring.description':
+    'לומדים לעבוד עם Git ו־GitHub, לבנות פרופיל GitHub מרשים ומקצועי, להציג פרויקטים בצורה נכונה ולפתח נוכחות מקצועית כמפתחים.',
+  'footer.mentoring.cta': 'לפרטים וליצירת קשר',
+  'footer.mentoring.ctaAria': 'יצירת קשר בדוא"ל בנושא ליווי אישי ל-GitHub',
+  'footer.mentoring.name': 'דבורה',
 };
 
 export const dictionaries: Record<Language, Record<TranslationKey, string>> = {
