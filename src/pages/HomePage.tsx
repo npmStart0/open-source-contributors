@@ -31,24 +31,6 @@ export function HomePage() {
 
   const clearSkills = () => setSelectedSkills([]);
 
-  const benefits = [
-    {
-      icon: '🚀',
-      title: t('home.benefit1Title'),
-      text: t('home.benefit1Text'),
-    },
-    {
-      icon: '📝',
-      title: t('home.benefit2Title'),
-      text: t('home.benefit2Text'),
-    },
-    {
-      icon: '🤝',
-      title: t('home.benefit3Title'),
-      text: t('home.benefit3Text'),
-    },
-  ];
-
   return (
     <div className="home">
       <section className="hero" aria-labelledby="hero-title">
@@ -71,18 +53,6 @@ export function HomePage() {
             {t('home.join')}
           </Link>
         </div>
-      </section>
-
-      <section className="benefits" aria-label={t('home.benefitsTitle')}>
-        {benefits.map((benefit) => (
-          <article key={benefit.title} className="card benefit">
-            <span className="benefit__icon" aria-hidden="true">
-              {benefit.icon}
-            </span>
-            <h3 className="benefit__title">{benefit.title}</h3>
-            <p className="benefit__text">{benefit.text}</p>
-          </article>
-        ))}
       </section>
 
       <section id="contributors" aria-label={t('app.title')}>

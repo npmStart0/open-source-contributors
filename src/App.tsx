@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom';
 import { I18nProvider, useTranslation } from './i18n';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { ContributePage } from './pages/ContributePage';
 
@@ -50,6 +51,7 @@ export default function App() {
               <Route path="/contribute" element={<ContributePage />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </BrowserRouter>
     </I18nProvider>
