@@ -28,17 +28,25 @@ export function ContributorCard({ contributor }: ContributorCardProps) {
           height={56}
         />
         <div className="contributor-card__identity">
-          <h3 className="contributor-card__name">{name}</h3>
-          <span className="contributor-card__username">@{username}</span>
+          <h3 className="contributor-card__name" dir="auto">
+            {name}
+          </h3>
+          <span className="contributor-card__username" dir="ltr">
+            @{username}
+          </span>
         </div>
       </header>
 
-      {bio && <p className="contributor-card__bio">{bio}</p>}
+      {bio && (
+        <p className="contributor-card__bio" dir="auto">
+          {bio}
+        </p>
+      )}
 
       {skills.length > 0 && (
         <ul className="contributor-card__skills" aria-label={t('card.skills')}>
           {skills.map((skill) => (
-            <li key={skill} className="contributor-card__skill">
+            <li key={skill} className="contributor-card__skill" dir="ltr">
               {skill}
             </li>
           ))}

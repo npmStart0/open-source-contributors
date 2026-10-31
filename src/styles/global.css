@@ -594,6 +594,378 @@ pre {
   font-size: var(--fs-sm);
 }
 
+/* ==========================================================================
+   Contribute — interactive tutorial stepper
+   ========================================================================== */
+
+.tutorial .contribute__intro {
+  margin-bottom: var(--space-3);
+}
+
+/* --- Progress indicator --- */
+.tutorial-progress {
+  margin: var(--space-5) 0 var(--space-4);
+}
+
+.tutorial-progress__bar {
+  block-size: 10px;
+  inline-size: 100%;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.tutorial-progress__fill {
+  display: block;
+  block-size: 100%;
+  background: var(--brand-yellow);
+  border-radius: var(--radius-pill);
+  transition: inline-size var(--transition);
+}
+
+.tutorial-progress__status {
+  margin: var(--space-2) 0 0;
+  color: var(--color-muted);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+}
+
+/* --- Clickable step list --- */
+.tutorial-stepnav__list {
+  list-style: none;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tutorial-stepnav__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.85rem 0.35rem 0.4rem;
+  font: inherit;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition),
+    border-color var(--transition);
+}
+
+.tutorial-stepnav__item:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.tutorial-stepnav__num {
+  display: grid;
+  place-items: center;
+  inline-size: 1.6rem;
+  block-size: 1.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-xs);
+  flex-shrink: 0;
+}
+
+.tutorial-stepnav__item[data-state='current'] {
+  border-color: var(--brand-yellow);
+  color: var(--color-heading);
+  background: rgba(242, 230, 65, 0.1);
+}
+
+.tutorial-stepnav__item[data-state='current'] .tutorial-stepnav__num {
+  background: var(--brand-yellow);
+  color: #111113;
+}
+
+/* A check mark + filled dot both signal "done" — not color alone. */
+.tutorial-stepnav__item[data-state='done'] .tutorial-stepnav__num {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.tutorial-stepnav__item[data-state='done'] .tutorial-stepnav__num::after {
+  content: '✓';
+}
+
+.tutorial-stepnav__item[data-state='done'] .tutorial-stepnav__num {
+  font-size: 0;
+}
+
+.tutorial-stepnav__item[data-state='done'] .tutorial-stepnav__num::after {
+  font-size: var(--fs-xs);
+}
+
+/* --- Active step card --- */
+.tutorial-step {
+  background: var(--color-surface);
+  border: var(--border);
+  border-inline-start: 3px solid var(--brand-yellow);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-md);
+}
+
+.tutorial-step__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.tutorial-step__badge {
+  display: grid;
+  place-items: center;
+  inline-size: 2.6rem;
+  block-size: 2.6rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  background: var(--brand-yellow);
+  color: #111113;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-lg);
+}
+
+.tutorial-step__eyebrow {
+  margin: 0 0 var(--space-1);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  color: var(--color-muted);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tutorial-step__flag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+  padding: 0.1rem 0.6rem;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.tutorial-step__flag--required {
+  background: rgba(242, 230, 65, 0.16);
+  color: var(--brand-yellow);
+  border: 1px solid rgba(242, 230, 65, 0.4);
+}
+
+.tutorial-step__flag--optional {
+  background: rgba(47, 107, 255, 0.14);
+  color: var(--brand-blue-soft);
+  border: 1px solid rgba(47, 107, 255, 0.35);
+}
+
+.tutorial-step__title {
+  margin: 0;
+  font-size: var(--fs-lg);
+}
+
+.tutorial-step__what {
+  color: var(--color-text);
+  margin-top: 0;
+  /* Honor explicit \n in translation copy so we can break a line right before
+     a latin term (e.g. "Fork") that the bidi algorithm would otherwise reorder. */
+  white-space: pre-line;
+}
+
+.tutorial-step__subhead {
+  margin: var(--space-4) 0 var(--space-2);
+  font-size: var(--fs-md);
+  color: var(--color-heading);
+}
+
+.tutorial-step__instructions {
+  margin: var(--space-3) 0;
+  padding-inline-start: 1.4rem;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.tutorial-step__instructions li::marker {
+  color: var(--brand-yellow);
+  font-weight: var(--fw-bold);
+}
+
+.tutorial-step__fields {
+  margin: var(--space-2) 0;
+  padding-inline-start: 1.2rem;
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* Hebrew tutorial copy mixes latin terms (GitHub, Fork, JSON) with Hebrew.
+   Isolate each block so the bidi algorithm keeps the RTL base direction and
+   does not drag punctuation or latin runs to the wrong side of the line. */
+.contribute__intro,
+.tutorial-step__title,
+.tutorial-stepnav__title,
+.tutorial-step__what,
+.tutorial-step__subhead,
+.tutorial-step__instructions li,
+.tutorial-step__fields li,
+.tutorial-step__success,
+.tutorial-callout span,
+.tutorial-optional__toggle span,
+.pr-diagram__text {
+  unicode-bidi: isolate;
+}
+
+.tutorial-step__success {
+  font-size: var(--fs-md);
+  color: var(--color-heading);
+  background: rgba(47, 107, 255, 0.1);
+  border: 1px solid rgba(47, 107, 255, 0.3);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+/* --- Callouts (tip / warning) --- */
+.tutorial-callout {
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin: var(--space-3) 0 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  border-inline-start: 3px solid var(--color-accent);
+  background: var(--color-surface-raised);
+  font-size: var(--fs-sm);
+}
+
+.tutorial-callout--warn {
+  border-inline-start-color: var(--brand-yellow);
+}
+
+.tutorial-callout__label {
+  color: var(--color-heading);
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+}
+
+/* --- Base vs Compare diagram --- */
+.pr-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-3);
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.pr-diagram__box {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+.pr-diagram__box--compare {
+  border-color: rgba(47, 107, 255, 0.4);
+}
+
+.pr-diagram__box--base {
+  border-color: rgba(242, 230, 65, 0.4);
+}
+
+.pr-diagram__tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--color-heading);
+}
+
+.pr-diagram__box--compare .pr-diagram__tag {
+  color: var(--brand-blue-soft);
+}
+
+.pr-diagram__box--base .pr-diagram__tag {
+  color: var(--brand-yellow);
+}
+
+.pr-diagram__text {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+}
+
+.pr-diagram__arrow {
+  align-self: center;
+  font-size: var(--fs-xl);
+  color: var(--color-muted);
+}
+
+/* The arrow glyph points to the writing direction's end; flip it for RTL. */
+[dir='rtl'] .pr-diagram__arrow {
+  transform: scaleX(-1);
+}
+
+/* --- Previous / Next navigation --- */
+.tutorial-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin: var(--space-5) 0;
+}
+
+.tutorial-nav .btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- Optional disclosure --- */
+.tutorial-optional {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  margin: var(--space-5) 0;
+}
+
+.tutorial-optional__toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  inline-size: 100%;
+  text-align: start;
+  border: none;
+  background: transparent;
+  color: var(--color-heading);
+  font: inherit;
+  font-weight: var(--fw-semibold);
+  padding: var(--space-4);
+  cursor: pointer;
+}
+
+.tutorial-optional__chevron {
+  margin-inline-start: auto;
+  color: var(--color-muted);
+  font-size: var(--fs-xs);
+}
+
+.tutorial-optional__panel {
+  padding: 0 var(--space-4) var(--space-4);
+  color: var(--color-text);
+}
+
 .code-block {
   position: relative;
   background: #0c0d0f;
@@ -818,6 +1190,22 @@ pre {
 
   .contribute__step {
     padding-inline-start: 3rem;
+  }
+
+  .tutorial-step {
+    padding: var(--space-4);
+  }
+
+  .tutorial-nav .btn {
+    flex: 1 1 auto;
+  }
+
+  .pr-diagram__arrow {
+    transform: rotate(90deg);
+  }
+
+  [dir='rtl'] .pr-diagram__arrow {
+    transform: rotate(90deg);
   }
 }
 

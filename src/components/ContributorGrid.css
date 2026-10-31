@@ -1,6 +1,13 @@
+/* Responsive contributor grid.
+   - Wide screens: three equal-width columns.
+   - Tablet (<= 1024px): two columns.
+   - Mobile (<= 768px): one column.
+   minmax(0, 1fr) lets columns shrink below their content size, which prevents
+   long usernames or skill lists from forcing a card past its cell and causing
+   horizontal scrolling. */
 .contributor-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
   list-style: none;
   padding: 0;
@@ -9,4 +16,19 @@
 
 .contributor-grid__item {
   display: flex;
+  /* Fill the grid cell so the card stretches to full width and sibling cards
+     in a row share identical dimensions. */
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .contributor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .contributor-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
