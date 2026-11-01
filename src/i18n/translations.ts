@@ -28,9 +28,10 @@ export const en = {
   'language.switch': 'Language',
   'language.he': 'עברית',
   'language.en': 'English',
-  'contribute.title': 'Your First Contribution, Step by Step',
+  'contribute.title': 'Your First Contribution, Joining the Community',
   'contribute.intro':
     'This is a complete guide for people who have never used GitHub. You will go from creating an account all the way to submitting your first contribution — using only the GitHub website. No software to install.',
+  'contribute.introCommunity': 'At the end of the process — you will be part of our community :)',
   'contribute.noInstall':
     'You do not need to install Git, GitHub Desktop, or any editor. Everything here is done in your web browser.',
   'contribute.openRepo': 'Open the repository on GitHub',
@@ -217,9 +218,10 @@ export const he: Record<TranslationKey, string> = {
   'language.switch': 'שפה',
   'language.he': 'עברית',
   'language.en': 'English',
-  'contribute.title': 'התרומה הראשונה שלכם, שלב אחר שלב',
+  'contribute.title': 'התרומה הראשונה שלכם, ההצטרפות לקהילה.',
   'contribute.intro':
     'זהו מדריך מלא למי שמעולם לא השתמש ב-GitHub. תעברו מיצירת חשבון ועד שליחת התרומה הראשונה שלכם — באמצעות אתר GitHub בלבד. אין צורך להתקין שום תוכנה.',
+  'contribute.introCommunity': 'בסוף התהליך — תהיו חלק מהקהילה שלנו :)',
   'contribute.noInstall':
     'אין צורך להתקין Git, GitHub Desktop או עורך קוד כלשהו. כל מה שכאן נעשה בדפדפן שלכם.',
   'contribute.openRepo': 'פתיחת המאגר ב-GitHub',

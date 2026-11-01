@@ -268,9 +268,12 @@ export function ContributePage() {
     <section className="contribute tutorial">
       <h2>{t('contribute.title')}</h2>
       <p className="contribute__intro">{t('contribute.intro')}</p>
-      <Callout tone="info" label={`${t('contribute.optional')} ·`}>
+      <p className="contribute__intro">
+        <strong>{t('contribute.introCommunity')}</strong>
+      </p>
+      {/* <Callout tone="info" label={`${t('contribute.optional')} ·`}>
         {t('contribute.noInstall')}
-      </Callout>
+      </Callout> */}
 
       {/* Progress indicator */}
       <div className="tutorial-progress">
