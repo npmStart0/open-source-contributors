@@ -5,7 +5,7 @@
  * against the shared schema, enforces that the filename matches the username,
  * and rejects case-insensitive duplicate usernames.
  */
-import { readdirSync, readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { ZodError } from 'zod';
 import { parseContributor } from '../src/types/contributorSchema';
@@ -21,24 +21,54 @@ export interface CollectResult {
   errors: ValidationError[];
 }
 
-function readJsonFileNames(dir: string): string[] {
+interface DirScan {
+  jsonFiles: string[];
+  nonJsonFiles: string[];
+}
+
+function scanContributorDir(dir: string): DirScan {
   let entries: string[];
   try {
     entries = readdirSync(dir);
   } catch {
     // Directory does not exist yet: treat as an empty set.
-    return [];
+    return { jsonFiles: [], nonJsonFiles: [] };
   }
-  return entries.filter((name) => name.endsWith('.json')).sort();
+
+  const jsonFiles: string[] = [];
+  const nonJsonFiles: string[] = [];
+
+  for (const name of entries) {
+    // Only inspect regular files; ignore nested directories.
+    if (!statSync(join(dir, name)).isFile()) {
+      continue;
+    }
+    if (name.endsWith('.json')) {
+      jsonFiles.push(name);
+    } else {
+      nonJsonFiles.push(name);
+    }
+  }
+
+  return { jsonFiles: jsonFiles.sort(), nonJsonFiles: nonJsonFiles.sort() };
 }
 
 export function collectContributors(dir: string): CollectResult {
-  const files = readJsonFileNames(dir);
+  const { jsonFiles, nonJsonFiles } = scanContributorDir(dir);
   const contributors: Contributor[] = [];
   const errors: ValidationError[] = [];
   const seenUsernames = new Map<string, string>();
 
-  for (const file of files) {
+  // A contributor file without a `.json` extension would be silently skipped
+  // by the generator, so flag it as an error to catch it during PR validation.
+  for (const file of nonJsonFiles) {
+    errors.push({
+      file,
+      message: `missing ".json" extension: rename to "${file}.json"`,
+    });
+  }
+
+  for (const file of jsonFiles) {
     const fullPath = join(dir, file);
     const expectedUsername = basename(file, '.json');
 

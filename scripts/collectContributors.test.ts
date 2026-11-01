@@ -33,6 +33,14 @@ describe('collectContributors', () => {
     expect(errors[0].file).toBe('extra-field.json');
   });
 
+  it('rejects a contributor file missing the .json extension', () => {
+    const { contributors, errors } = collectContributors(fixtures('no-extension'));
+    expect(contributors).toEqual([]);
+    expect(errors).toHaveLength(1);
+    expect(errors[0].file).toBe('missing-ext');
+    expect(errors[0].message).toContain('missing ".json" extension');
+  });
+
   it('rejects invalid JSON', () => {
     const { contributors, errors } = collectContributors(fixtures('broken'));
     expect(contributors).toEqual([]);
