@@ -8,6 +8,17 @@ import type { Contributor } from '../types/contributor';
 
 export const contributors: Contributor[] = [
   {
+    "username": "DvoraShechter1",
+    "name": "Dvora Hochberger",
+    "bio": "FullStack developer",
+    "skills": [
+      "React",
+      "Node.js",
+      ".net"
+    ],
+    "profileUrl": "https://github.com/DvoraShechter1"
+  },
+  {
     "username": "israel-dev",
     "name": "Israel Israeli",
     "bio": "Frontend developer learning and contributing to open source.",
