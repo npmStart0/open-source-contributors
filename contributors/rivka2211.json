@@ -2,33 +2,17 @@
 {
   "username": "rivka-elfenbein",
   "name": "Rivka Elfenbein",
-  "bio": "Software Developer specializing in AI-powered solutions, Full Stack development, and intelligent automation. Experienced in building LLM-based applications, RAG systems, and AI-driven workflows, including a production-deployed AI testing solution. Passionate about connecting business needs with practical, scalable technology.",
+  "bio": "Software Developer specializing in AI solutions, Full Stack development, and automation. Hands-on experience with LLMs, RAG, and AI-powered applications, including a production-deployed testing system. Skilled at turning business needs into practical technology.",
   "skills": [
     "Python",
     "C#",
     ".NET Core",
-    "Java",
-    "JavaScript",
-    "TypeScript",
     "React",
-    "Next.js",
+    "TypeScript",
     "SQL",
     "REST APIs",
-    "Entity Framework Core",
-    "Git",
-    "GitHub",
-    "AI Development",
     "LLMs",
-    "Prompt Engineering",
     "RAG",
-    "Vector Databases",
-    "Embeddings",
-    "AI Agents",
-    "Workflow Automation",
-    "UiPath",
-    "Make",
-    "Selenium",
-    "Software Testing",
-    "Full Stack Development"
+    "Prompt Engineering"
   ]
 }
